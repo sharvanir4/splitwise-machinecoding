@@ -19,7 +19,7 @@ public class EqualSplitStrategy implements SplitStrategy {
     @Override
     public Map<String, Double> calculateSplits() {
          Map<String, Double> splits = new HashMap<>();
-         double amountPerParticipant = (double) totalAmount / splits.size();
+         double amountPerParticipant = (double) totalAmount / participants.size();
          for (String participant : participants) {
              splits.put(participant, amountPerParticipant);
          }
