@@ -30,7 +30,6 @@ public class SplitwiseService {
     }
 
     //requirement 1: The system should allow users to create accounts
-    //returns user id
     public synchronized void createUser(String id, String name) {
         if (userMap.containsKey(id)) {
             throw new UnsupportedOperationException("User with id " + id + " already exists");
@@ -50,7 +49,7 @@ public class SplitwiseService {
 
     //requirement 2: Users should be able to create groups
     public synchronized void createGroup(String id, String name, String description) {
-        if (!userMap.containsKey(id)) {
+        if (groupMap.containsKey(id)) {
             throw new UnsupportedOperationException("Group with id " + id + " already exists");
         }
         groupMap.put(id, new GroupImpl(id, name, description)); //TODO: createdBy
